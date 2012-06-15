@@ -22,7 +22,7 @@ var partition = d3.layout.partition()
 var arc = d3.svg.arc()
     .startAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x))); })
     .endAngle(function(d) { return Math.max(0, Math.min(2 * Math.PI, x(d.x + d.dx))); })
-    .innerRadius(function(d) { return Math.max(0, d.y ? y(d.y) : d.y); })
+    .innerRadius(function(d) { return Math.max(0, d.y ? y(d.y)+5 : d.y+5); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
 d3.json("data/eurovizz.json", function(json) {
@@ -33,9 +33,16 @@ d3.json("data/eurovizz.json", function(json) {
       .attr("id", function(d, i) { return "path-" + i; })
       .attr("d", arc)
       .style("fill", function(d) { return d.colour })
-      .style("stroke", "#333333")
-      .style("stroke-width", "2")
+      .attr("fill-rule", "evenodd")
       .on("click", click);
+
+  // var result = vis.selectAll("circle").data(nodes);
+  // result.enter()
+  //   .append("circle")
+  //   .attr("r","10")
+  //   .attr("fill","black")
+  //   .attr("cy",function(d) {return Math.max(0, d.y ? y(d.y)+5 : d.y+5)})
+  //   .attr("cx",function(d) {return Math.max(0, y(d.y + d.dy))})
 
   var text = vis.selectAll("text").data(nodes);
   var textEnter = text.enter().append("text")
@@ -44,12 +51,15 @@ d3.json("data/eurovizz.json", function(json) {
       .attr("text-anchor", function(d) {
         return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
       })
+      .attr("dx", function(d) {
+        return x(d.x + d.dx / 2) > Math.PI ? -5 : 5;
+      })
       .attr("dy", ".2em")
       .attr("transform", function(d) {
         var multiline = (d.name || "").split(" ").length > 1,
             angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
             rotate = angle + (multiline ? -.5 : 0);
-        return "rotate(" + rotate + ")translate(" + (y(d.y) + p) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+        return "rotate(" + rotate + ") translate(" + (y(d.y) + 10 + p) + ") rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
       .on("click", click);
   textEnter.append("tspan")
@@ -76,15 +86,18 @@ d3.json("data/eurovizz.json", function(json) {
           return x(d.x + d.dx / 2) > Math.PI ? "end" : "start";
         };
       })
+      // .attr("dx", function(d) {
+      //   return x(d.x + d.dx / 2) > Math.PI ? -10 : 10;
+      // })
       .attrTween("transform", function(d) {
         var multiline = (d.name || "").split(" ").length > 1;
         return function() {
           var angle = x(d.x + d.dx / 2) * 180 / Math.PI - 90,
               rotate = angle + (multiline ? -.5 : 0);
-          return "rotate(" + rotate + ")translate(" + (y(d.y) + p) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
+          return "rotate(" + rotate + ")translate(" + (y(d.y) + 10 + p) + ")rotate(" + (angle > 90 ? -180 : 0) + ")";
         };
       })
-      .style("fill-opacity", function(e) { return isParentOf(d, e) ? 1 : 1e-6; })
+      .style("fill-opacity", function(e) { return isParentOf(d, e) ? 0.5 : 1e-6; })
       .each("end", function(e) {
         d3.select(this).style("visibility", isParentOf(d, e) ? null : "hidden");
       });
@@ -116,9 +129,4 @@ function arcTween(d) {
 
 function maxY(d) {
   return d.children ? Math.max.apply(Math, d.children.map(maxY)) : d.y + d.dy;
-}
-
-// http://www.w3.org/WAI/ER/WD-AERT/#color-contrast
-function brightness(rgb) {
-  return rgb.r * .299 + rgb.g * .587 + rgb.b * .114;
 }

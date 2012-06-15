@@ -2,6 +2,7 @@
   {
     "name": "SPA",
     "colour": "red",
+    "goals": "3",
     "children" : [
       {
         "name": "SPA",
@@ -36,6 +37,7 @@
   {
     "name": "ENG",
     "colour": "blue",
+    "goals": "0",
     "children" : [
       {
         "name": "ENG",
