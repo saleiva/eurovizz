@@ -22,7 +22,11 @@ function createChart(g,d){
           .x(function(d,i) { return x(i); })
           .y(function(d) { return -1 * y(d); })        
 
-          g.append("svg:path").attr("d", line(data));
+          g.append("svg:path")
+						.attr("d", line(data))
+						.style("stroke", function(d) {
+         			return json.rows[i].color;
+       			});
       }
   });
 }
