@@ -1,12 +1,12 @@
 body {width:100%; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center -30px;}
-div#vis {width:534px; height:534px;display: inline-block;}
+div#vis {width:534px; height:534px;display: inline-block; vertical-align: middle; margin:0 28px 0 0;}
 div.wrapper{text-align:center; margin:240px 0 0 0; background:none;}
 
 
 /*MINICHARTS*/
-.mini_chart{padding: 0 0 15px 0; width: 179px; background: transparent url(../img/mini_chart_bkg.png) no-repeat; display: inline-block; margin:0 20px 0 0;}
+.mini_chart{padding: 0 0 15px 0; width: 179px; background: transparent url(../img/mini_chart_bkg.png) no-repeat; display: inline-block; vertical-align: middle; margin:0 20px 0 0;}
 .last{margin:0;}
-path {stroke: steelblue; stroke-width: 2; fill: none;}
-line {stroke: black;}
-text {font-family: Arial; font-size: 9pt;}
+.mini_chart path {stroke: steelblue; stroke-width: 2; fill: none;}
+.mini_chart line {stroke: black;}
+.mini_chart text {font-family: Arial; font-size: 9pt;}
 .group_title{stroke:#FFF; stroke-width:1}
