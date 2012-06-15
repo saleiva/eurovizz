@@ -1,0 +1,71 @@
+[
+  {
+    "name": "SPA",
+    "colour": "red",
+    "children" : [
+      {
+        "name": "SPA",
+        "colour": "red",
+        "children" : [
+          {
+            "name": "SPA",
+            "colour": "red"
+          },
+          {
+            "name": "FRA",
+            "colour": "blue"
+          }
+        ]
+      },
+      {
+        "name": "POL",
+        "colour": "red",
+        "children" : [
+          {
+            "name": "POL",
+            "colour": "red"
+          },
+          {
+            "name": "GER",
+            "colour": "white"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ENG",
+    "colour": "blue",
+    "children" : [
+      {
+        "name": "ENG",
+        "colour": "blue",
+        "children" : [
+          {
+            "name": "ENG",
+            "colour": "blue"
+          },
+          {
+            "name": "DEN",
+            "colour": "white"
+          }
+        ]        
+      },
+      {
+        "name": "NED",
+        "colour": "orange",
+        "children" : [
+          {
+            "name": "NED",
+            "colour": "orange"
+          },
+          {
+            "name": "POR",
+            "colour": "green"
+          }
+        ]
+      }
+    ]
+  }
+]
+
