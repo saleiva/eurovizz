@@ -1,2 +1,2 @@
-body,html {width:100%; height:100%; margin:0;}
+body,html {width:100%; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center top;}
 div#vis {width:100%; height:100%;}
