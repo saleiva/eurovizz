@@ -9,7 +9,7 @@ var w = 534,
 var div = d3.select("#vis");
 
 
-var vis = div.append("svg")
+var donuts = div.append("svg")
     .attr("width", w + p * 2)
     .attr("height", h + p * 2)
     .append("g")
@@ -28,7 +28,7 @@ var arc = d3.svg.arc()
 d3.json("data/eurovizz.json", function(json) {
   var nodes = partition.nodes({children: json});
 
-  var path = vis.selectAll("path").data(nodes);
+  var path = donuts.selectAll("path").data(nodes);
   path.enter().append("path")
       .attr("id", function(d, i) { return "path-" + i; })
       .attr("d", arc)
@@ -44,7 +44,7 @@ d3.json("data/eurovizz.json", function(json) {
   //   .attr("cy",function(d) {return Math.max(0, d.y ? y(d.y)+5 : d.y+5)})
   //   .attr("cx",function(d) {return Math.max(0, y(d.y + d.dy))})
 
-  var text = vis.selectAll("text").data(nodes);
+  var text = donuts.selectAll("text").data(nodes);
   var textEnter = text.enter().append("text")
       .style("fill-opacity", ".5")
       .style("font", "bold 15px Arial")

@@ -2,7 +2,7 @@ function createChart(g,d){
 
     d3.json("https://saleiva.cartodb.com/api/v2/sql?q=select%20*%20from%20first_phase%20where%20group_name%20=%20'"+g+"'", function(json) {
 
-        w = 200,
+      var w = 200,
         h = 140,
         margin = 20,
         y = d3.scale.linear().domain([0, 12]).range([0 + margin, h - margin]),

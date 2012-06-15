@@ -5,6 +5,6 @@ div.wrapper{text-align:center; margin:240px 0 0 0; background:none;}
 
 /*MINICHARTS*/
 .mini_chart{padding: 0 0 35px 0; width: 179px; background: transparent url(../img/mini_chart_bkg.png) no-repeat; display: inline-block;}
-path {stroke: steelblue; stroke-width: 2; fill: none;}
-line {stroke: black;}
-text {font-family: Arial; font-size: 9pt;}
+.mini_chart path {stroke: steelblue; stroke-width: 2; fill: none;}
+.mini_chart line {stroke: black;}
+.mini_chart text {font-family: Arial; font-size: 9pt;}
