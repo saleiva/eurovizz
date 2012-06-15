@@ -1,2 +1,10 @@
-body,html {width:100%; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center top;}
-div#vis {width:100%; height:100%;}
+body {width:100%; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center -30px;}
+div#vis {width:534px; height:534px;display: inline-block;}
+div.wrapper{text-align:center; margin:240px 0 0 0; background:none;}
+
+
+/*MINICHARTS*/
+.mini_chart{padding: 0 0 35px 0; width: 179px; background: transparent url(../img/mini_chart_bkg.png) no-repeat; display: inline-block;}
+path {stroke: steelblue; stroke-width: 2; fill: none;}
+line {stroke: black;}
+text {font-family: Arial; font-size: 9pt;}
