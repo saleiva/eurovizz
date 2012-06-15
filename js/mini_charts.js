@@ -25,14 +25,25 @@ function createChart(gr,d){
       .y(function(d) { return -1 * y(d); })        
 
       g.append("svg:path")
+				.data(data)
   			.attr("d", line(data))
+  			.attr("id", json.rows[i].country)
   			.style("stroke", function(d) {
      			return json.rows[i].color;
-   			});
+   			})
+				.on("mousemove", function(d) {
+					d3.select("#group_"+gr).text(this.id.toUpperCase());
+					d3.select(this).style("stroke-width",4);
+				})
+				.on("mouseout", function(d) {
+					d3.select("#group_"+gr).text("GROUP "+gr);
+					d3.select(this).style("stroke-width",2);
+				});
     }
 
     g.append("svg:text")
       .attr("class", "group_title")
+      .attr("id", "group_"+gr)
       .text("GROUP "+gr)
       .attr("x", 100)
       .attr("y", 26)
