@@ -36,13 +36,13 @@ d3.json("data/eurovizz.json", function(json) {
       .attr("fill-rule", "evenodd")
       .on("click", click);
 
-  // var result = vis.selectAll("circle").data(nodes);
-  // result.enter()
-  //   .append("circle")
-  //   .attr("r","10")
-  //   .attr("fill","black")
-  //   .attr("cy",function(d) {return Math.max(0, d.y ? y(d.y)+5 : d.y+5)})
-  //   .attr("cx",function(d) {return Math.max(0, y(d.y + d.dy))})
+  var result = donuts.selectAll("circle").data(nodes);
+  result.enter()
+    .append("circle")
+    .attr("r","10")
+    .attr("fill","black")
+    .attr("cy",function(d) {return Math.max(0, d.y ? y(d.y)+5 : d.y+5)})
+    .attr("cx",function(d) {return Math.max(0, y(d.y + d.dy))})
 
   var text = donuts.selectAll("text").data(nodes);
   var textEnter = text.enter().append("text")
@@ -61,7 +61,7 @@ d3.json("data/eurovizz.json", function(json) {
             rotate = angle + (multiline ? -.5 : 0);
         return "rotate(" + rotate + ") translate(" + (y(d.y) + 10 + p) + ") rotate(" + (angle > 90 ? -180 : 0) + ")";
       })
-      .on("click", click);
+      //.on("click", click);
   textEnter.append("tspan")
       .attr("x", 0)
       .text(function(d) { return d.depth ? d.name.split(" ")[0] : ""; });
