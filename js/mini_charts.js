@@ -34,6 +34,10 @@ function createChart(gr,d){
 				.on("mousemove", function(d) {
 					d3.select("#group_"+gr).text(this.id.toUpperCase());
 					d3.select(this).style("stroke-width",4);
+					
+					var parent = this.parentNode;
+					parent.removeChild(this);
+					parent.appendChild(this);
 				})
 				.on("mouseout", function(d) {
 					d3.select("#group_"+gr).text("GROUP "+gr);
