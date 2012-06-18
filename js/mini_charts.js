@@ -23,16 +23,31 @@ function createChart(gr,d){
       var line = d3.svg.line()
       .x(function(d,i) { return x(i); })
       .y(function(d) { return -1 * y(d); })        
+      .interpolate("basis");
 
       g.append("svg:path")
+				.data(data)
   			.attr("d", line(data))
+  			.attr("id", json.rows[i].country)
   			.style("stroke", function(d) {
      			return json.rows[i].color;
-   			});
+   			})
+				.on("mousemove", function(d) {
+					d3.select("#group_"+gr).text(this.id.toUpperCase());
+					d3.select(this).transition().duration(100).style("stroke-width",4);					
+					var parent = this.parentNode;
+					parent.removeChild(this);
+					parent.appendChild(this);
+				})
+				.on("mouseout", function(d) {
+					d3.select("#group_"+gr).text("GROUP "+gr);
+					d3.select(this).transition().duration(100).style("stroke-width",2);
+				});
     }
 
     g.append("svg:text")
       .attr("class", "group_title")
+      .attr("id", "group_"+gr)
       .text("GROUP "+gr)
       .attr("x", 100)
       .attr("y", 26)
