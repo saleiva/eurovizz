@@ -7,7 +7,7 @@ var w = 544,
     color = d3.scale.category20(),
     donut = d3.layout.pie(),
     arc = function(outer) {
-      return d3.svg.arc().innerRadius(outer - 95).outerRadius(outer);
+      return d3.svg.arc().innerRadius(outer - 66).outerRadius(outer);
     }
 
 
@@ -35,7 +35,9 @@ d3.json("data/results.json", function(json) {
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
         .attr("d", arc(r))
-        .attr("fill-opacity",0.5);
+
+    // Quaterfinals results
+    
 
 
     // Semifinals
@@ -52,7 +54,7 @@ d3.json("data/results.json", function(json) {
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
-        .attr("d", arc(r-100))
+        .attr("d", arc(r-70))
         .attr("fill-opacity",0.5);
 
 
@@ -71,8 +73,19 @@ d3.json("data/results.json", function(json) {
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
-        .attr("d", arc(r-200))
+        .attr("d", arc(r-140))
         .attr("fill-opacity",0.5);
+
+    
+    // Winner
+    var winner = donuts.append("svg:g")
+      .data([json[3]])
+      .attr("class","finals")
+
+    winner.append("svg:circle")
+        .attr("fill", function(d, i) { console.log(d); return d.color; })
+        .attr("r", 62)
+        .attr("transform", "translate(" + (r) + "," + r + ")");
 
 
 

@@ -2,7 +2,7 @@
   [
     {
       "name": "ESP",
-      "color": "grey"
+      "color": "red"
     },
     {
       "name": "ESP",
@@ -64,7 +64,7 @@
   [
     {
       "name": "ESP",
-      "color": "grey"
+      "color": "white"
     }
   ]
 ]
