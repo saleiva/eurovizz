@@ -1,8 +1,8 @@
 
 
-var w = 544,
-    h = 544,
-    r = Math.min(w, h) / 2,
+var w = 550,
+    h = 550,
+    r = (Math.min(w, h) / 2)-5,
     labelr = r + 30, // radius for label anchor
     color = d3.scale.category20(),
     donut = d3.layout.pie(),
@@ -23,22 +23,36 @@ d3.json("data/results.json", function(json) {
     // Quaterfinals
 
     var quarterfinals = donuts.append("svg:g")
-      .data([json[0]])
+      .data([json[0][0]])
       .attr("class","quarter")
       
     var arcs = quarterfinals.selectAll("g.arc")
       .data(donut.value(function(d) { return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r) + "," + r + ")");
+      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
         .attr("d", arc(r))
+        .attr("stroke-width", 2)
+        .attr("stroke-opactity", 0.2)
+        .attr("stroke","#000");
 
     // Quaterfinals results
-    
 
+    var quarterfinals_results = donuts.append("svg:g")
+      .data([json[0][1]])
+      .attr("class","quarter_results")
+
+    var circles = quarterfinals_results.selectAll("g.circle")
+      .data(donut.value(function(d) { return d.position }))
+      .enter().append("svg:g")
+      .attr("transform", function(d){ return "translate("+d.data.position[0]+","+d.data.position[1]+")"});
+
+      circles.append("svg:circle")
+        .attr("fill", "black")
+        .attr("r", 15);
 
     // Semifinals
 
@@ -50,12 +64,12 @@ d3.json("data/results.json", function(json) {
       .data(donut.value(function(d) { return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r) + "," + r + ")");
+      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
         .attr("d", arc(r-70))
-        .attr("fill-opacity",0.5);
+        .attr("fill-opacity",0.2);
 
 
     // Finals
@@ -68,7 +82,7 @@ d3.json("data/results.json", function(json) {
       .data(donut.value(function(d) { return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r) + "," + r + ")");
+      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
 
 
     arcs.append("svg:path")
@@ -85,7 +99,7 @@ d3.json("data/results.json", function(json) {
     winner.append("svg:circle")
         .attr("fill", function(d, i) { console.log(d); return d.color; })
         .attr("r", 62)
-        .attr("transform", "translate(" + (r) + "," + r + ")");
+        .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
 
 
 

@@ -1,37 +1,57 @@
 [
   [
-    {
-      "name": "ESP",
-      "color": "red"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    },
-    {
-      "name": "ESP",
-      "color": "grey"
-    }
+    [
+      {
+        "name": "RCH",
+        "color": "#FF6666"
+      },
+      {
+        "name": "GRE",
+        "color": "#397DBA"
+      },
+      {
+        "name": "GER",
+        "color": "#FFCC33"
+      },
+      {
+        "name": "POR",
+        "color": "#78C19B"
+      },
+      {
+        "name": "ESP",
+        "color": "#FF6666"
+      },
+      {
+        "name": "ITA",
+        "color": "#397DBA"
+      },
+      {
+        "name": "ESP",
+        "color": "grey"
+      },
+      {
+        "name": "ESP",
+        "color": "grey"
+      }
+    ],
+    [
+      {
+        "result": "3-2",
+        "position": [108,108]
+      },
+      {
+        "result": "2-3",
+        "position": [443,108]
+      },
+      {
+        "result": "3-2",
+        "position": [108,443]
+      },
+      {
+        "result": "2-3",
+        "position": [443,443]
+      }
+    ]
   ],
   [
     {
