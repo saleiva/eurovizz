@@ -1,7 +1,7 @@
 body {min-width:1400px; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center -30px;}
 div#vis {width:534px; height:534px;display: inline-block; vertical-align: middle; margin:0 28px 0 0;}
 div.wrapper{text-align:center; margin:240px 0 0 0; background:none;}
-.credits{position:absolute; bottom:0px; left: 10px; font-family: Helvetica, Arial; font-size: 13px; color: #333;}
+.credits{position:absolute; bottom:0px; left: 13px; font-family: Helvetica, Arial; font-size: 13px; color: #333;}
 .credits a,.credits a:visited{color: #333;}
 
 /*MINICHARTS*/
