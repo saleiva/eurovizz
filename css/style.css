@@ -1,8 +1,9 @@
 body {min-width:1400px; height:100%; margin:0; background:#000 url('../img/bkg.jpg') no-repeat center top;}
 div#vis {position: absolute; left: 50%; top: 50%; width: 600px; height: 600px; margin-left: -300px; margin-top: -300px; background: transparent url('../img/shadow.png') center center;}
 div.logo {position: absolute; left: 50%; top: 50%; width: 147px; height: 260px; margin-left: -600px; margin-top: -80px; }
-.credits{position:absolute; bottom:0px; left: 13px; font-family: Helvetica, Arial; font-size: 13px; color: #666;}
+.credits{position:absolute; bottom:0px; right: 13px; font-family: Helvetica, Arial; font-size: 13px; color: #666;}
 .credits a,.credits a:visited{color: #666;}
+.credits a:hover{color:#CCC;}
 
 .result_text{stroke:#FFF; stroke-width:.6; font-family: Arial; font-size:11px;}
 .country_name{stroke:#000; stroke-width:1; opacity:.4; font-family: Arial; font-size:11px;}
