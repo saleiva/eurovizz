@@ -37,19 +37,23 @@
     [
       {
         "result": "3-2",
-        "position": [108,108]
+        "position": [108,108],
+        "rotate": "(-45,0,0)"
       },
       {
         "result": "2-3",
-        "position": [443,108]
+        "position": [443,108],
+        "rotate": "(45,0,0)"
       },
       {
         "result": "3-2",
-        "position": [108,443]
+        "position": [108,443],
+        "rotate": "(45,0,0)"
       },
       {
         "result": "2-3",
-        "position": [443,443]
+        "position": [443,443],
+        "rotate": "(-45,0,0)"
       }
     ]
   ],

@@ -46,7 +46,7 @@ function createChart(gr,d){
     }
 
     g.append("svg:text")
-      .attr("class", "group_title")
+      .attr("class", "result_text")
       .attr("id", "group_"+gr)
       .text("GROUP "+gr)
       .attr("x", 100)

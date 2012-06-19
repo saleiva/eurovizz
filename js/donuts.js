@@ -39,6 +39,7 @@ d3.json("data/results.json", function(json) {
         .attr("stroke-opactity", 0.2)
         .attr("stroke","#000");
 
+
     // Quaterfinals results
 
     var quarterfinals_results = donuts.append("svg:g")
@@ -53,6 +54,15 @@ d3.json("data/results.json", function(json) {
       circles.append("svg:circle")
         .attr("fill", "black")
         .attr("r", 15);
+
+      circles.append("svg:text")
+        .text(function(d){console.log(d.data.result); return d.data.result})
+        .attr("x", 0)
+        .attr("y", 13)
+        .attr("dy","-0.8em")
+        .attr("transform",function (d){console.log(d.data.rotate); return "rotate"+d.data.rotate})
+        .attr("class", "result_text")
+        .style("text-anchor","middle");
 
     // Semifinals
 

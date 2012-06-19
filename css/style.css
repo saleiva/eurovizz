@@ -4,6 +4,8 @@ div.wrapper{text-align:center; margin:240px 0 0 0; background:none;}
 .credits{position:absolute; bottom:0px; left: 13px; font-family: Helvetica, Arial; font-size: 13px; color: #333;}
 .credits a,.credits a:visited{color: #333;}
 
+.result_text{stroke:#FFF; stroke-width:1; font-family: Arial; font-size:11px;}
+
 /*MINICHARTS*/
 .mini_chart{padding: 0 0 15px 0; width: 179px; background: transparent url(../img/mini_chart_bkg.png) no-repeat; display: inline-block; vertical-align: middle; margin:0 20px 0 0;}
 .last{margin:0;}
