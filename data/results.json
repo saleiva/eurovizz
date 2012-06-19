@@ -52,23 +52,23 @@
     ],
     [
       {
-        "result": "?",
-        "position": [127,127],
+        "result": "",
+        "position": [462,127],
         "rotate": "(-45,0,0)"
       },
       {
-        "result": "?",
-        "position": [462,127],
+        "result": "",
+        "position": [462,462],
         "rotate": "(45,0,0)"
       },
       {
-        "result": "?",
+        "result": "",
         "position": [127,462],
         "rotate": "(45,0,0)"
       },
       {
-        "result": "?",
-        "position": [462,462],
+        "result": "",
+        "position": [127,127],
         "rotate": "(-45,0,0)"
       }
     ]
@@ -102,11 +102,11 @@
     ],
     [
       {
-        "result": "?",
+        "result": "",
         "position": [462,295]
       },
       {
-        "result": "?",
+        "result": "",
         "position": [126,295]
       }
     ]
@@ -126,7 +126,7 @@
     ],
     [
       {
-        "result": "?",
+        "result": "",
         "position": [295,197]
       }
     ]

@@ -20,7 +20,7 @@ d3.json("data/results.json", function(json) {
 
   var quarterfinals = donuts.append("svg:g")
     .data([json[0][0]])
-    .attr("class","quarter")
+    .attr("class","quarter");
     
   var arcs = quarterfinals.selectAll("g.arc")
     .data(donut.value(function(d) { return 1200 }))
@@ -31,6 +31,7 @@ d3.json("data/results.json", function(json) {
   arcs.append("svg:path")
       .attr("fill", function(d, i) { return d.data.color; })
       .attr("d", arc(r))
+      .attr("opacity",0)
       .attr("stroke-width", 2)
       .attr("stroke-opacity", .3)
       .attr("stroke","#000");
@@ -42,6 +43,12 @@ d3.json("data/results.json", function(json) {
       .attr("transform", function (d){return "rotate"+d.data.rotate})
       .attr("class", "country_name")
       .style("text-anchor","middle");
+
+  d3.selectAll("path").transition()
+    .attr("opacity", 1)
+    .delay(function(d,i) { return (i+1) * 200 })
+    .ease("cubic")
+    .duration(500);
 
 
   // Quaterfinals results
@@ -57,6 +64,7 @@ d3.json("data/results.json", function(json) {
 
     circles.append("svg:circle")
       .attr("fill", "black")
+      .attr("opacity",0)
       .attr("r", 15);
 
     circles.append("svg:text")
@@ -65,8 +73,13 @@ d3.json("data/results.json", function(json) {
       .attr("y", 4)
       .attr("transform",function (d){return "rotate"+d.data.rotate})
       .attr("class", "result_text")
-      .attr("opacity", function(d) { if(d.data.result == "?"){return 0.5} return 1; })
       .style("text-anchor","middle");
+
+  d3.selectAll("circle").transition()
+    .attr("opacity", 1)
+    .delay(function(d,i) { return (i+1) * 400 })
+    .ease("cubic")
+    .duration(500);  
 
   // Semifinals
 
@@ -86,6 +99,7 @@ d3.json("data/results.json", function(json) {
       .attr("fill-opacity", function(d, i) { if(d.data.color == ""){return 0.45} return 1; })
       .attr("stroke-width", 2)
       .attr("stroke-opacity", .3)
+      .attr("opacity",0)
       .attr("stroke","#000");
 
   arcs.append("svg:text")
@@ -95,6 +109,12 @@ d3.json("data/results.json", function(json) {
       .attr("transform", function (d){return "rotate"+d.data.rotate})
       .attr("class", "country_name")
       .style("text-anchor","middle");
+
+  d3.selectAll("path").transition()
+    .attr("opacity", 1)
+    .delay(function(d,i) { return (i+1) * 200 })
+    .ease("cubic")
+    .duration(500);
 
 // Semifinals results
 
@@ -109,6 +129,7 @@ d3.json("data/results.json", function(json) {
 
     circles.append("svg:circle")
       .attr("fill", "black")
+      .attr("opacity",0)
       .attr("r", 15);
 
     circles.append("svg:text")
@@ -116,8 +137,13 @@ d3.json("data/results.json", function(json) {
       .attr("x", 0)
       .attr("y", 4)
       .attr("class", "result_text")
-      .attr("opacity", function(d) { if(d.data.result == "?"){return 0.5} return 1; })
       .style("text-anchor","middle");        
+
+    d3.selectAll("circle").transition()
+      .attr("opacity", 1)
+      .delay(function(d,i) { return (i+1) * 400 })
+      .ease("cubic")
+      .duration(500);  
 
 
   // Finals
@@ -138,6 +164,7 @@ d3.json("data/results.json", function(json) {
       .attr("fill-opacity", function(d, i) { if(d.data.color == ""){return 0.35} return 1; })
       .attr("stroke-width", 2)
       .attr("stroke-opacity", .3)
+      .attr("opacity", 0)
       .attr("stroke","#000");
 
   arcs.append("svg:text")
@@ -146,6 +173,12 @@ d3.json("data/results.json", function(json) {
       .attr("y", function(d){return d.data.position[1]})
       .attr("class", "country_name")
       .style("text-anchor","middle");
+
+  d3.selectAll("path").transition()
+    .attr("opacity", 1)
+    .delay(function(d,i) { return (i+1) * 200 })
+    .ease("cubic")
+    .duration(500);
 
 // finals result
 
@@ -160,6 +193,7 @@ d3.json("data/results.json", function(json) {
 
     circles.append("svg:circle")
       .attr("fill", "black")
+      .attr("opacity",0)
       .attr("r", 15);
 
     circles.append("svg:text")
@@ -168,14 +202,20 @@ d3.json("data/results.json", function(json) {
       .attr("y", 4)
       .attr("transform",function (d){return "rotate"+d.data.rotate})
       .attr("class", "result_text")
-      .attr("opacity", function(d) { if(d.data.result == "?"){return 0.5} return 1; })
-      .style("text-anchor","middle");           
+      .style("text-anchor","middle");
+
+    d3.selectAll("circle").transition()
+      .attr("opacity", 1)
+      .delay(function(d,i) { return (i+1) * 400 })
+      .ease("cubic")
+      .duration(500);  
 
   
   // Winner
   var winner = donuts.append("svg:g")
     .data([json[3][0]])
-    .attr("class","finals")
+    .attr("opacity",0)
+    .attr("class","finals");
 
   winner.append("svg:circle")
       .attr("fill", function(d) {if(d.color == ""){return "grey"} return d.color; })
@@ -188,5 +228,11 @@ d3.json("data/results.json", function(json) {
       .attr("x", 295)
       .attr("y", 298)
       .attr("class", "country_name")
-      .style("text-anchor","middle");        
+      .style("text-anchor","middle");
+
+  winner.transition()
+      .attr("opacity", 1)
+      .delay(3000)
+      .ease("cubic")
+      .duration(500);    
 });
