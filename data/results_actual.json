@@ -1,0 +1,133 @@
+[
+  [
+    [
+      {
+        "name": "RCH",
+        "color": "#FF6666",
+        "position": [90,-213],
+        "rotate": "(25,90,-210)"
+      },
+      {
+        "name": "GRE",
+        "color": "#397DBA",
+        "position": [217,-88],
+        "rotate": "(65,217,-88)"
+      },
+      {
+        "name": "GER",
+        "color": "#FFCC33",
+        "position": [222,88],
+        "rotate": "(-65,222,88)"
+      },
+      {
+        "name": "POR",
+        "color": "#78C19B",
+        "position": [95,220],
+        "rotate": "(-25,95,220)"
+      },
+      {
+        "name": "ESP",
+        "color": "#FF6666",
+        "position": [-90,221],
+        "rotate": "(25,-90,221)"
+      },
+      {
+        "name": "FRA",
+        "color": "#397DBA",
+        "position": [-223,90],
+        "rotate": "(65,-223,90)"
+      },
+      {
+        "name": "ITA",
+        "color": "#78C19B",
+        "position": [-218,-85],
+        "rotate": "(-65,-218,-85)"
+      },
+      {
+        "name": "ING",
+        "color": "#FFFFFF",
+        "position": [-90,-213],
+        "rotate": "(-25,-90,-213)"
+      }
+    ],
+    [
+      {
+        "result": "?",
+        "position": [127,127],
+        "rotate": "(-45,0,0)"
+      },
+      {
+        "result": "?",
+        "position": [462,127],
+        "rotate": "(45,0,0)"
+      },
+      {
+        "result": "?",
+        "position": [127,462],
+        "rotate": "(45,0,0)"
+      },
+      {
+        "result": "?",
+        "position": [462,462],
+        "rotate": "(-45,0,0)"
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "name": "",
+        "color": ""
+      },
+      {
+        "name": "",
+        "color": ""
+      },
+      {
+        "name": "",
+        "color": ""
+      },
+      {
+        "name": "",
+        "color": ""
+      }
+    ],
+    [
+      {
+        "result": "?",
+        "position": [462,295],
+        "rotate": "(0,0,0)"
+      },
+      {
+        "result": "?",
+        "position": [126,295],
+        "rotate": "(0,0,0)"
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "name": "",
+        "color": ""
+      },
+      {
+        "name": "",
+        "color": ""
+      }
+    ],
+    [
+      {
+        "result": "?",
+        "position": [295,197],
+        "rotate": "(0,0,0)"
+      }
+    ]
+  ],
+  [
+    {
+      "name": "ESP",
+      "color": "yellow"
+    }
+  ]
+]

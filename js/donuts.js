@@ -1,24 +1,20 @@
 
 
-var w = 550,
-    h = 550,
-    r = (Math.min(w, h) / 2)-5,
-    labelr = r + 30, // radius for label anchor
+var w = 600,
+    h = 600,
+    r = (Math.min(550, 550) / 2)-5,
     color = d3.scale.category20(),
     donut = d3.layout.pie(),
     arc = function(outer) {
       return d3.svg.arc().innerRadius(outer - 66).outerRadius(outer);
     }
 
-
-
-
-d3.json("data/results.json", function(json) {
+d3.json("data/results_fake.json", function(json) {
 
   var donuts = d3.select("#vis")
     .append("svg:svg")
       .attr("width", w)
-      .attr("height", h);
+      .attr("height", h)
 
     // Quaterfinals
 
@@ -30,14 +26,22 @@ d3.json("data/results.json", function(json) {
       .data(donut.value(function(d) { return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
+      .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return d.data.color; })
         .attr("d", arc(r))
         .attr("stroke-width", 2)
-        .attr("stroke-opactity", 0.2)
+        .attr("stroke-opacity", .3)
         .attr("stroke","#000");
+
+    arcs.append("svg:text")
+        .text(function(d){return d.data.name})
+        .attr("x", function(d){return d.data.position[0]})
+        .attr("y", function(d){return d.data.position[1]})
+        .attr("transform", function (d){return "rotate"+d.data.rotate})
+        .attr("class", "country_name")
+        .style("text-anchor","middle");
 
 
     // Quaterfinals results
@@ -56,60 +60,131 @@ d3.json("data/results.json", function(json) {
         .attr("r", 15);
 
       circles.append("svg:text")
-        .text(function(d){console.log(d.data.result); return d.data.result})
+        .text(function(d){return d.data.result})
         .attr("x", 0)
-        .attr("y", 13)
-        .attr("dy","-0.8em")
-        .attr("transform",function (d){console.log(d.data.rotate); return "rotate"+d.data.rotate})
+        .attr("y", 4)
+        .attr("transform",function (d){return "rotate"+d.data.rotate})
         .attr("class", "result_text")
         .style("text-anchor","middle");
 
     // Semifinals
 
     var semifinals = donuts.append("svg:g")
-      .data([json[1]])
+      .data([json[1][0]])
       .attr("class","semis")
       
     var arcs = semifinals.selectAll("g.arc")
       .data(donut.value(function(d) { return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
+      .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
     arcs.append("svg:path")
-        .attr("fill", function(d, i) { return d.data.color; })
-        .attr("d", arc(r-70))
-        .attr("fill-opacity",0.2);
+        .attr("fill", function(d, i) { if(d.data.color == ""){return "grey"} return d.data.color; })
+        .attr("d", arc(r-69))
+        .attr("fill-opacity", function(d, i) { if(d.data.color == ""){return 0.35} return 1; })
+        .attr("stroke-width", 2)
+        .attr("stroke-opacity", .3)
+        .attr("stroke","#000");
+
+    arcs.append("svg:text")
+        .text(function(d){return d.data.name})
+        .attr("x", function(d){return d.data.position[0]})
+        .attr("y", function(d){return d.data.position[1]})
+        .attr("transform", function (d){return "rotate"+d.data.rotate})
+        .attr("class", "country_name")
+        .style("text-anchor","middle");
+
+  // Semifinals results
+
+    var semifinals_results = donuts.append("svg:g")
+      .data([json[1][1]])
+      .attr("class","quarter_results")
+
+    var circles = semifinals_results.selectAll("g.circle")
+      .data(donut.value(function(d) { return d.position }))
+      .enter().append("svg:g")
+      .attr("transform", function(d){ return "translate("+d.data.position[0]+","+d.data.position[1]+")"});
+
+      circles.append("svg:circle")
+        .attr("fill", "black")
+        .attr("r", 15);
+
+      circles.append("svg:text")
+        .text(function(d){return d.data.result})
+        .attr("x", 0)
+        .attr("y", 4)
+        .attr("class", "result_text")
+        .style("text-anchor","middle");        
 
 
     // Finals
 
     var finals = donuts.append("svg:g")
-      .data([json[2]])
+      .data([json[2][0]])
       .attr("class","finals")
       
     var arcs = finals.selectAll("g.arc")
-      .data(donut.value(function(d) { return 1200 }))
+      .data(donut.value(function(d) {return 1200 }))
       .enter().append("svg:g")
       .attr("class", "arc")
-      .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
-
+      .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
     arcs.append("svg:path")
-        .attr("fill", function(d, i) { return d.data.color; })
-        .attr("d", arc(r-140))
-        .attr("fill-opacity",0.5);
+        .attr("fill", function(d, i) { console.log(d.data.color); if(d.data.color == ""){return "grey"} return d.data.color; })
+        .attr("d", arc(r-138))
+        .attr("fill-opacity", function(d, i) { if(d.data.color == ""){return 0.35} return 1; })
+        .attr("stroke-width", 2)
+        .attr("stroke-opacity", .3)
+        .attr("stroke","#000");
+
+    arcs.append("svg:text")
+        .text(function(d){return d.data.name})
+        .attr("x", function(d){return d.data.position[0]})
+        .attr("y", function(d){return d.data.position[1]})
+        .attr("class", "country_name")
+        .style("text-anchor","middle");
+
+  // finals result
+
+    var finals_results = donuts.append("svg:g")
+      .data([json[2][1]])
+      .attr("class","finals_results")
+
+    var circles = finals_results.selectAll("g.circle")
+      .data(donut.value(function(d) { return d.position }))
+      .enter().append("svg:g")
+      .attr("transform", function(d){ return "translate("+d.data.position[0]+","+d.data.position[1]+")"});
+
+      circles.append("svg:circle")
+        .attr("fill", "black")
+        .attr("r", 15);
+
+      circles.append("svg:text")
+        .text(function(d){return d.data.result})
+        .attr("x", 0)
+        .attr("y", 4)
+        .attr("transform",function (d){return "rotate"+d.data.rotate})
+        .attr("class", "result_text")
+        .style("text-anchor","middle");           
 
     
     // Winner
     var winner = donuts.append("svg:g")
-      .data([json[3]])
+      .data([json[3][0]])
       .attr("class","finals")
 
     winner.append("svg:circle")
-        .attr("fill", function(d, i) { console.log(d); return d.color; })
-        .attr("r", 62)
-        .attr("transform", "translate(" + (r+5) + "," + (r+5) + ")");
+        .attr("fill", function(d, i) {return d.color; })
+        .attr("r", 63)
+        .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
+
+    winner.append("svg:text")
+        .text(function(d){return d.name})
+        .attr("x", 295)
+        .attr("y", 298)
+        .attr("class", "country_name")
+        .style("text-anchor","middle");        
 
 
 
