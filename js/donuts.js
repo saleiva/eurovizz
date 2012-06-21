@@ -46,9 +46,9 @@ d3.json("data/results.json", function(json) {
 
   d3.selectAll("path").transition()
     .attr("opacity", 1)
-    .delay(function(d,i) { return (i+1) * 200 })
+    .delay(function(d,i) { return (i+1) * 150 })
     .ease("cubic")
-    .duration(500);
+    .duration(300);
 
 
   // Quaterfinals results
@@ -77,9 +77,9 @@ d3.json("data/results.json", function(json) {
 
   d3.selectAll("circle").transition()
     .attr("opacity", 1)
-    .delay(function(d,i) { return (i+1) * 400 })
+    .delay(function(d,i) { return (i+1) * 300 })
     .ease("cubic")
-    .duration(500);  
+    .duration(300);  
 
   // Semifinals
 
@@ -112,9 +112,9 @@ d3.json("data/results.json", function(json) {
 
   d3.selectAll("path").transition()
     .attr("opacity", 1)
-    .delay(function(d,i) { return (i+1) * 200 })
+    .delay(function(d,i) { return (i+1) * 150 })
     .ease("cubic")
-    .duration(500);
+    .duration(300);
 
 // Semifinals results
 
@@ -141,9 +141,9 @@ d3.json("data/results.json", function(json) {
 
     d3.selectAll("circle").transition()
       .attr("opacity", 1)
-      .delay(function(d,i) { return (i+1) * 400 })
+      .delay(function(d,i) { return (i+1) * 300 })
       .ease("cubic")
-      .duration(500);  
+      .duration(300);  
 
 
   // Finals
@@ -176,9 +176,9 @@ d3.json("data/results.json", function(json) {
 
   d3.selectAll("path").transition()
     .attr("opacity", 1)
-    .delay(function(d,i) { return (i+1) * 200 })
+    .delay(function(d,i) { return (i+1) * 150 })
     .ease("cubic")
-    .duration(500);
+    .duration(300);
 
 // finals result
 
@@ -206,9 +206,9 @@ d3.json("data/results.json", function(json) {
 
     d3.selectAll("circle").transition()
       .attr("opacity", 1)
-      .delay(function(d,i) { return (i+1) * 400 })
+      .delay(function(d,i) { return (i+1) * 300 })
       .ease("cubic")
-      .duration(500);  
+      .duration(300);  
 
   
   // Winner
@@ -232,7 +232,7 @@ d3.json("data/results.json", function(json) {
 
   winner.transition()
       .attr("opacity", 1)
-      .delay(3000)
+      .delay(2400)
       .ease("cubic")
-      .duration(500);    
+      .duration(300);    
 });
