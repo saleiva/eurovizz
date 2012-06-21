@@ -26,6 +26,7 @@ d3.json("data/results.json", function(json) {
     .data(donut.value(function(d) { return 1200 }))
     .enter().append("svg:g")
     .attr("class", "arc")
+    .attr("data-country", function(d) {return d.data.name})
     .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
   arcs.append("svg:path")
@@ -91,6 +92,7 @@ d3.json("data/results.json", function(json) {
     .data(donut.value(function(d) { return 1200 }))
     .enter().append("svg:g")
     .attr("class", "arc")
+    .attr("data-country", function(d) {return d.data.name})
     .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
   arcs.append("svg:path")
@@ -156,10 +158,11 @@ d3.json("data/results.json", function(json) {
     .data(donut.value(function(d) {return 1200 }))
     .enter().append("svg:g")
     .attr("class", "arc")
+    .attr("data-country", function(d) {return d.data.name})
     .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
   arcs.append("svg:path")
-      .attr("fill", function(d, i) { console.log(d.data.color); if(d.data.color == ""){return "grey"} return d.data.color; })
+      .attr("fill", function(d, i) {if(d.data.color == ""){return "grey"} return d.data.color; })
       .attr("d", arc(r-138))
       .attr("fill-opacity", function(d, i) { if(d.data.color == ""){return 0.35} return 1; })
       .attr("stroke-width", 2)
@@ -208,7 +211,7 @@ d3.json("data/results.json", function(json) {
       .attr("opacity", 1)
       .delay(function(d,i) { return (i+1) * 300 })
       .ease("cubic")
-      .duration(300);  
+      .duration(300);
 
   
   // Winner
@@ -234,5 +237,38 @@ d3.json("data/results.json", function(json) {
       .attr("opacity", 1)
       .delay(2400)
       .ease("cubic")
-      .duration(300);    
+      .duration(300);
+
+
+
+  setTimeout(function(){
+    d3.selectAll("g.arc").on("mouseover",onMouseOver);
+    d3.selectAll("g.arc").on("mouseout",onMouseOut);
+  },2500)
+
+
+  function onMouseOver() {
+    var self = this;
+
+    if (d3.select(self).attr("data-country") == "") {
+      onMouseOut();
+      return false;
+    }
+
+    d3
+      .selectAll("g.arc")
+      .filter(function(d, i) { return (((self != this) && (d3.select(self).attr("data-country") != d3.select(this).attr("data-country"))) ? d : null) })
+      .transition()
+      .duration(350)
+      .style("opacity",0.3)
+  }
+
+  function onMouseOut() {
+    d3
+      .selectAll("g.arc")
+      .transition()
+      .duration(350)
+      .style("opacity",1)
+  }
+
 });
