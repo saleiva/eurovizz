@@ -14,25 +14,25 @@
         "rotate": "(65,217,-88)"
       },
       {
-        "name": "GER",
-        "color": "#FFCC33",
+        "name": "ESP",
+        "color": "#FF6666",
         "position": [222,88],
         "rotate": "(-65,222,88)"
       },
       {
-        "name": "GRE",
+        "name": "FRA",
         "color": "#397DBA",
         "position": [95,220],
         "rotate": "(-25,95,220)"
       },
       {
-        "name": "ESP",
-        "color": "#FF6666",
+        "name": "GER",
+        "color": "#FFCC33",
         "position": [-90,221],
         "rotate": "(25,-90,221)"
       },
       {
-        "name": "FRA",
+        "name": "GRE",
         "color": "#397DBA",
         "position": [-223,90],
         "rotate": "(65,-223,90)"
@@ -52,7 +52,7 @@
     ],
     [
       {
-        "result": "",
+        "result": "0-1",
         "position": [462,127],
         "rotate": "(45,0,0)"
       },
@@ -76,8 +76,8 @@
   [
     [
       {
-        "name": "",
-        "color": "",
+        "name": "POR",
+        "color": "#78C19B",
         "position": [116,-116],
         "rotate": "(45,116,-116)"
       },
