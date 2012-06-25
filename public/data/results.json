@@ -57,17 +57,17 @@
         "rotate": "(45,0,0)"
       },
       {
-        "result": "",
+        "result": "0-2",
         "position": [462,462],
         "rotate": "(-45,0,0)"
       },
       {
-        "result": "",
+        "result": "2-4",
         "position": [127,462],
         "rotate": "(45,0,0)"
       },
       {
-        "result": "",
+        "result": "0-0",
         "position": [127,127],
         "rotate": "(-45,0,0)"
       }
@@ -82,20 +82,20 @@
         "rotate": "(45,116,-116)"
       },
       {
-        "name": "",
-        "color": "",
+        "name": "ESP",
+        "color": "#FF6666",
         "position": [121,122],
         "rotate": "(-45,121,122)"
       },
       {
-        "name": "",
-        "color": "",
+        "name": "GER",
+        "color": "#FFCC33",
         "position": [-122,122],
         "rotate": "(45,-122,122)"
       },
       {
-        "name": "",
-        "color": "",
+        "name": "ITA",
+        "color": "#78C19B",
         "position": [-116,-116],
         "rotate": "(-45,-116,-116)"
       }
