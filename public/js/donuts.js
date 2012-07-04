@@ -223,6 +223,7 @@ d3.json("data/results.json", function(json) {
   winner.append("svg:circle")
       .attr("fill", function(d) {if(d.color == ""){return "grey"} return d.color; })
       .attr("opacity", function(d) {if(d.name == ""){return .2} return 1; })
+      .attr("data-country", function(d) {return d.name})
       .attr("r", 63)
       .attr("transform", "translate(" + (r+25) + "," + (r+25) + ")");
 
@@ -260,7 +261,7 @@ d3.json("data/results.json", function(json) {
       .filter(function(d, i) { return (((self != this) && (d3.select(self).attr("data-country") != d3.select(this).attr("data-country"))) ? d : null) })
       .transition()
       .duration(350)
-      .style("opacity",0.3)
+      .style("opacity",0.3);
   }
 
   function onMouseOut() {

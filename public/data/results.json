@@ -102,11 +102,11 @@
     ],
     [
       {
-        "result": "",
+        "result": "0-0",
         "position": [462,295]
       },
       {
-        "result": "",
+        "result": "1-2",
         "position": [126,295]
       }
     ]
@@ -114,27 +114,27 @@
   [
     [
       {
-        "name": "",
-        "color": "",
+        "name": "ESP",
+        "color": "#FF6666",
         "position": [95,3]
       },
       {
-        "name": "",
-        "color": "",
+        "name": "ITA",
+        "color": "#397DBA",
         "position": [-95,3]
       }
     ],
     [
       {
-        "result": "",
+        "result": "0-4",
         "position": [295,197]
       }
     ]
   ],
   [
     {
-      "name": "",
-      "color": "",
+      "name": "ESP",
+      "color": "#ff6666",
       "position": [295,197]
     }
   ]
